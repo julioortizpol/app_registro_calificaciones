@@ -15,7 +15,7 @@ class Services:
 
     def get_datos(self):
         if self._datos.status_code==200:
-            return self._datos.text
+            return self._datos.json()
         else:
             return '500'
     #end method
