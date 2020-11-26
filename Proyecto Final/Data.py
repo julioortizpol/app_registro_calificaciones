@@ -11,17 +11,18 @@ class Data:
 
     def seek(self):
         #table 1
-        self._sentencia ="CREATE TABLE IF NOT EXISTS PROVINCIA (CODIGO INTEGER PRIMARY KEY, DESCRIPCION VARCHAR(30),LATITUD VARCHAR(10), LONGITUD VARCHAR(10))"
+        self._sentencia ="CREATE TABLE IF NOT EXISTS PROVINCIA (CODIGO INTEGER, DESCRIPCION VARCHAR(30) PRIMARY KEY,LATITUD VARCHAR(10), LONGITUD VARCHAR(10))"
         self._cCursorSql.execute(self._sentencia)
         #table 2
         self._sentencia ="CREATE TABLE IF NOT EXISTS CARRERA (CODIGO INTEGER PRIMARY KEY, DESCRIPCION VARCHAR(60))"
         self._cCursorSql.execute(self._sentencia)
         #table 3
         self._sentencia = '''CREATE TABLE IF NOT EXISTS ESTUDIANTE (ID_ESTUDIANTE INTEGER PRIMARY KEY AUTOINCREMENT, MATRICULA INT NOT NULL, NOMBRE VARCHAR(30), 
-            APELLIDO VARCHAR(50), CEDULA VARCHAR(15),FOTO VARCHAR(60), SEXO NCHAR(1), PROVINCIA VARCHAR(30), CARRERA VARCHAR(60))'''
+            APELLIDO VARCHAR(50), CEDULA VARCHAR(15),FOTO VARCHAR(60), SEXO NCHAR(1), PROVINCIA VARCHAR(30), CARRERA VARCHAR(60),
+            FOREIGN KEY(PROVINCIA) REFERENCES PROVINCIA(DESCRIPCION))'''
         self._cCursorSql.execute(self._sentencia)
         #table 4
-        self._sentencia = "CREATE TABLE IF NOT EXISTS MATERIA (CODIGO VARCHAR(6), NOMBRE_MATERIA VARCHAR(15))"
+        self._sentencia = "CREATE TABLE IF NOT EXISTS MATERIA (CODIGO VARCHAR(6) PRIMARY KEY, NOMBRE_MATERIA VARCHAR(15))"
         self._cCursorSql.execute(self._sentencia)
         #table 5
         self._sentencia = '''CREATE TABLE IF NOT EXISTS CALIFICACIONES (ID_CALIFICACION INTEGER PRIMARY KEY AUTOINCREMENT, ID_ESTUDIANTE INTEGER, 
@@ -40,7 +41,7 @@ class Data:
              (7, 'San Cristóbal', '18.41667','-70.1'),
              (8, 'Puerto Plata', '19.79344','-70.6884'),
              (9, 'Bonao', '18.93687','-70.40923'),
-             (10, 'San Juan de la Maguana.	18.80588', '-71.22991','$3'),
+             (10, 'San Juan de la Maguana.','18.80588', '-71.22991'),
              (11, 'Baní', '18.27964','-70.33185'),
              (12, 'Mao', '19.55186','-71.07813'),
              (13, 'Moca', '19.39352','-70.52598'),

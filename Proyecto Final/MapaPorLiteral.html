@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5" ></div>
+        
+</body>
+<script>    
+    
+            var map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5 = L.map(
+                "map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5",
+                {
+                    center: [18.8269076, -70.2872627],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    titles: "A",
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5e7d5dbdf1b34baea4a31f1e4946cc84 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var marker_1d453c3f1d3a4cc8a31834ed34ced452 = L.marker(
+                [19.54878, -71.70829],
+                {"poput": "Dajab\u00f3n"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_58f790bb3db34b4fadd2306d84d3760b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1d453c3f1d3a4cc8a31834ed34ced452.setIcon(icon_58f790bb3db34b4fadd2306d84d3760b);
+        
+    
+            marker_1d453c3f1d3a4cc8a31834ed34ced452.bindTooltip(
+                `<div>
+                     JUANA
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c0c3c1116570479c85df53368a764711 = L.marker(
+                [18.42733, -68.97285],
+                {"poput": "La Romana"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_f0b5d53afa9c4c2cb18b7dbc4c9c96ce = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c0c3c1116570479c85df53368a764711.setIcon(icon_f0b5d53afa9c4c2cb18b7dbc4c9c96ce);
+        
+    
+            marker_c0c3c1116570479c85df53368a764711.bindTooltip(
+                `<div>
+                     FELIPE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_242bde49ebaf4e6fbaad857cb7f85b89 = L.marker(
+                [18.47186, -69.89232],
+                {"poput": "Santo Domingo"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_a1b10992c510431d9af102a28540aea4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_242bde49ebaf4e6fbaad857cb7f85b89.setIcon(icon_a1b10992c510431d9af102a28540aea4);
+        
+    
+            marker_242bde49ebaf4e6fbaad857cb7f85b89.bindTooltip(
+                `<div>
+                     DANIEL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a1d5eb493d75491087ebe78f074a4ca9 = L.marker(
+                [19.54878, -71.70829],
+                {"poput": "Dajab\u00f3n"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_7f350f4ffcef4cb98a5216ada6c04af2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a1d5eb493d75491087ebe78f074a4ca9.setIcon(icon_7f350f4ffcef4cb98a5216ada6c04af2);
+        
+    
+            marker_a1d5eb493d75491087ebe78f074a4ca9.bindTooltip(
+                `<div>
+                     JUANA
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_797e9a86b60b476994703b87a31b6999 = L.marker(
+                [18.42733, -68.97285],
+                {"poput": "La Romana"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_66cd1d2264cc485ba03ecb62e828cad4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_797e9a86b60b476994703b87a31b6999.setIcon(icon_66cd1d2264cc485ba03ecb62e828cad4);
+        
+    
+            marker_797e9a86b60b476994703b87a31b6999.bindTooltip(
+                `<div>
+                     FELIPE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_65f0d816a2d34af1af907e580c9be396 = L.marker(
+                [18.47186, -69.89232],
+                {"poput": "Santo Domingo"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_c9df5e167f774b9db42522f5830ce9d4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_65f0d816a2d34af1af907e580c9be396.setIcon(icon_c9df5e167f774b9db42522f5830ce9d4);
+        
+    
+            marker_65f0d816a2d34af1af907e580c9be396.bindTooltip(
+                `<div>
+                     DANIEL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c1c78dedb95041968d4621133bf5e5d9 = L.marker(
+                [19.54878, -71.70829],
+                {"poput": "Dajab\u00f3n"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_48573d95d8d544b18fa9e8aabf970352 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c1c78dedb95041968d4621133bf5e5d9.setIcon(icon_48573d95d8d544b18fa9e8aabf970352);
+        
+    
+            marker_c1c78dedb95041968d4621133bf5e5d9.bindTooltip(
+                `<div>
+                     JUANA
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b07aff79d70e418493340a47bd69913b = L.marker(
+                [18.42733, -68.97285],
+                {"poput": "La Romana"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_6d384e7c1825436b91816c54d178e655 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b07aff79d70e418493340a47bd69913b.setIcon(icon_6d384e7c1825436b91816c54d178e655);
+        
+    
+            marker_b07aff79d70e418493340a47bd69913b.bindTooltip(
+                `<div>
+                     FELIPE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ff8cfcf4ab77444b8cd567ac08e9f4e5 = L.marker(
+                [18.47186, -69.89232],
+                {"poput": "Santo Domingo"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_5db0336c8e3f4846b38084abd875088b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ff8cfcf4ab77444b8cd567ac08e9f4e5.setIcon(icon_5db0336c8e3f4846b38084abd875088b);
+        
+    
+            marker_ff8cfcf4ab77444b8cd567ac08e9f4e5.bindTooltip(
+                `<div>
+                     DANIEL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a856760c93a24d5389c02e302f385190 = L.marker(
+                [19.54878, -71.70829],
+                {"poput": "Dajab\u00f3n"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_cc10f287f5d9421ebd863c1e07a4bf3e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a856760c93a24d5389c02e302f385190.setIcon(icon_cc10f287f5d9421ebd863c1e07a4bf3e);
+        
+    
+            marker_a856760c93a24d5389c02e302f385190.bindTooltip(
+                `<div>
+                     JUANA
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f65e613a05d841ee94c7f7525c72ad13 = L.marker(
+                [18.42733, -68.97285],
+                {"poput": "La Romana"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_ab266f04629c46068f4b1a2e45917762 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f65e613a05d841ee94c7f7525c72ad13.setIcon(icon_ab266f04629c46068f4b1a2e45917762);
+        
+    
+            marker_f65e613a05d841ee94c7f7525c72ad13.bindTooltip(
+                `<div>
+                     FELIPE
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e8235b7d528e44a8b8fb5cb9fc115749 = L.marker(
+                [18.47186, -69.89232],
+                {"poput": "Santo Domingo"}
+            ).addTo(map_2e7e94ad1c5a4e54b22dc7b9bdd7bdd5);
+        
+    
+            var icon_89b6659457c745b1b409ae301a29b647 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_e8235b7d528e44a8b8fb5cb9fc115749.setIcon(icon_89b6659457c745b1b409ae301a29b647);
+        
+    
+            marker_e8235b7d528e44a8b8fb5cb9fc115749.bindTooltip(
+                `<div>
+                     DANIEL
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

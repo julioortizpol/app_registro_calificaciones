@@ -39,7 +39,7 @@ class Calculo:
       literal= "C"
     elif self._pr_final>80 and self._pr_final<90:
       literal= "B"
-    elif self._pr_final>90 and self._pr_final<100:
+    elif self._pr_final>90 and self._pr_final<=100:
       literal= "A"
     #end condition
     return literal

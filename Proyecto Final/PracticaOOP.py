@@ -7,8 +7,10 @@ from datetime import datetime
 from Data import Data
 from Alumno import Alumno
 from Notas import Notas
-from Reporte import Reporte
 from Services import Services
+import os
+import sqlite3
+import folium
 import base64
 import io
 import urllib
@@ -54,16 +56,105 @@ class MyProgram:
 
     def reporteControl(self):
         idEstudiante =StringVar()
+        Literal = StringVar()
+        Materia = StringVar()
+        
         filewin = Toplevel(self._master) 
 
         Label(filewin,text = "Estudiante").place(x=10, y=30)
+        Label(filewin,text = "Literal").place(x=10, y=140)
+        Label(filewin,text = "Materia").place(x=10, y=180)
         CbBoxEstudiante = ttk.Combobox(filewin, state='readonly', textvariable=idEstudiante, values=self.get_dataCombo('ESTUDIANTE')).place(x=100,y=30)
+        CbBoxMapaLiteral = ttk.Combobox(filewin, state='readonly', textvariable=Literal, values=('A','B','C','D','F')).place(x=100,y=140)
+        CbBoxMapaMateria = ttk.Combobox(filewin, state='readonly', textvariable=Materia, values=self.get_dataCombo('MATERIA')).place(x=100,y=180)
         botonReportee=Button(filewin, text = "Reporte html", width= 14, command= lambda:self.reporte(idEstudiante.get())).place(x=100, y=80)
+        botonMapa=Button(filewin, text = "Mapa", width= 14, command= lambda:self.llamarmapa(Literal.get(), Materia.get())).place(x=100, y=230)
+ 
 
-        filewin.geometry("250x200")
+        filewin.geometry("300x290")
         filewin.mainloop()
     #end method
+    
+    def llamarmapa(self, literal, materia):
+        
+        melbourne = (18.8269076, -70.2872627)
+        map = folium.Map(location = melbourne, zoom_start=8, titles=literal)
+        cConnect = sqlite3.connect("ESTUDIO")
+        cCursorSql = cConnect.cursor()
+        color = StringVar()
+        provincia = StringVar()
+        
+        cali = """(CALIFICACIONES.PRACTICA1 + CALIFICACIONES.PRACTICA2 + CALIFICACIONES.FORO1 + CALIFICACIONES.FORO2 +
+            CALIFICACIONES.PRIMER_PARCIAL + CALIFICACIONES.SEGUNDO_PARCIAL + CALIFICACIONES.EXAMEN_FINAL)/7"""
+        
+        
+        if literal == "A":
+            
+            provincia = f"""SELECT PROVINCIA.LATITUD, PROVINCIA.LONGITUD, ESTUDIANTE.PROVINCIA, ESTUDIANTE.NOMBRE
+            FROM ESTUDIANTE INNER JOIN PROVINCIA ON ESTUDIANTE.PROVINCIA = PROVINCIA.DESCRIPCION
+            INNER JOIN CALIFICACIONES ON ESTUDIANTE.MATRICULA = CALIFICACIONES.ID_ESTUDIANTE 
+            AND {cali} > 90
+            INNER JOIN MATERIA ON CALIFICACIONES.ID_MATERIA = "{materia}"
+            """
+            
+            color = 'red'
+            
+        elif literal == "B":
+            
+            provincia = f"""SELECT PROVINCIA.LATITUD, PROVINCIA.LONGITUD, ESTUDIANTE.PROVINCIA, ESTUDIANTE.NOMBRE
+            FROM ESTUDIANTE INNER JOIN PROVINCIA ON ESTUDIANTE.PROVINCIA = PROVINCIA.DESCRIPCION
+            INNER JOIN CALIFICACIONES ON ESTUDIANTE.MATRICULA = CALIFICACIONES.ID_ESTUDIANTE 
+            AND {cali} > 80 and {cali} < 90
+            INNER JOIN MATERIA ON CALIFICACIONES.ID_MATERIA = "{materia}"
+            """
+            color='blue'
+     
+        elif literal == "C":
+            
+            provincia = f"""SELECT PROVINCIA.LATITUD, PROVINCIA.LONGITUD, ESTUDIANTE.PROVINCIA, ESTUDIANTE.NOMBRE
+            FROM ESTUDIANTE INNER JOIN PROVINCIA ON ESTUDIANTE.PROVINCIA = PROVINCIA.DESCRIPCION
+            INNER JOIN CALIFICACIONES ON ESTUDIANTE.MATRICULA = CALIFICACIONES.ID_ESTUDIANTE 
+            AND {cali} > 70 and {cali} < 80
+            INNER JOIN MATERIA ON CALIFICACIONES.ID_MATERIA = "{materia}"
+            """
+            color='green'
+            
+        elif literal == "D":
+            
+            provincia = f"""SELECT PROVINCIA.LATITUD, PROVINCIA.LONGITUD, ESTUDIANTE.PROVINCIA, ESTUDIANTE.NOMBRE
+            FROM ESTUDIANTE INNER JOIN PROVINCIA ON ESTUDIANTE.PROVINCIA = PROVINCIA.DESCRIPCION
+            INNER JOIN CALIFICACIONES ON ESTUDIANTE.MATRICULA = CALIFICACIONES.ID_ESTUDIANTE 
+            AND {cali} > 60 and {cali} < 70
+            INNER JOIN MATERIA ON CALIFICACIONES.ID_MATERIA = "{materia}"
+            """
+            color='darkgreen'
+        else:
+            color='black'
+            
+            provincia = f"""SELECT PROVINCIA.LATITUD, PROVINCIA.LONGITUD, ESTUDIANTE.PROVINCIA, ESTUDIANTE.NOMBRE
+            FROM ESTUDIANTE INNER JOIN PROVINCIA ON ESTUDIANTE.PROVINCIA = PROVINCIA.DESCRIPCION
+            INNER JOIN CALIFICACIONES ON ESTUDIANTE.MATRICULA = CALIFICACIONES.ID_ESTUDIANTE 
+            AND {cali} < 60
+            INNER JOIN MATERIA ON CALIFICACIONES.ID_MATERIA = "{materia}"
+            """
+        
+        cCursorSql.execute(provincia)
+        
+        items = cCursorSql.fetchall()
+        
+        for item in items: 
+            folium.Marker(location = (item[0],item[1]), tooltip=(item[3]), poput=(item[2]),icon=folium.Icon(color)).add_to(map)
+        
+            
+        
+        
+        
+        map.save("MapaPorLiteral.html")
+        os.system("MapaPorLiteral.html")
+        
 
+    #end _init
+    
     def materiaControl(self, id=0):
         codigo = StringVar()
         nombre = StringVar()
