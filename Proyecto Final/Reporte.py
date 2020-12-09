@@ -60,12 +60,14 @@ class Reporte:
         nota= Notas([n[3],n[4],n[5],n[6],n[7],n[8],n[9]])
         calc = Calculo(nota) 
         materia = self._database.consultarById('MATERIA', 'CODIGO', n[2])
+        print(self._estudiante)
         # promedioPractica = calcular_promedio(calificaciones[0],calificaciones[1])
         # promedioForo = calcular_promedio(calificaciones[2],calificaciones[3])
         # promedioParcial = calcular_promedio(calificaciones[4],calificaciones[5])
         # promedioFinal = calcular_promedio(calificaciones[6],promedioParcial,promedioForo,promedioPractica,False)
         htmlLiteral = self.literalhtml(calc.get_literal())
         return f'''<tr>
+        <td style="text-align:center; font-size:25px;"><img src="{self._estudiante[5]}" alt="foto de perfil" /></td>
         <td style="text-align:center; font-size:25px;"><b>{self._estudiante[1]}</b></td>
         <td style="text-align:center; font-size:25px;"><b>{self._estudiante[2]}</b></td>
         <td style="text-align:center; font-size:25px;"><b>{materia[0]}</b></td>
@@ -135,6 +137,7 @@ class Reporte:
         
         <table style="width:100%">
         <tr>
+            <th><div style="color: #0070c0; font-size:30px; font-family: Calibri">Perfil</div></th>
             <th><div style="color: #0070c0; font-size:30px; font-family: Calibri">Matrícula</div></th>
             <th><div style="color: #0070c0; font-size:30px; font-family: Calibri">Nombre</h3></th>
             <th><div style="color: #0070c0; font-size:30px; font-family: Calibri">Materia</div></th>
